@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: portfolio-api
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI           # set in Render dashboard
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: 5000
+
+  - type: web
+    name: portfolio-client
+    env: static
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: client/dist     # ← Vite output
+    envVars:
+      - key: VITE_API_URL             # ← Vite env name
+        value: https://portfolio-api.onrender.com/api

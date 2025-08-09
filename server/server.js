@@ -8,6 +8,9 @@ const { notFound, errorHandler } = require('./middleware/errorMiddleware.js');
 const projectRoutes = require('./routes/projects.js');
 const authRoutes = require('./routes/auth');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
+const rateLimit = require('express-rate-limit');
+
 
 dotenv.config();
 
@@ -27,6 +30,25 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
+app.use(compression());
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100
+});
+
+app.use('/api', limiter);
+
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1); // needed behind Render's proxy
+  app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https') {
+      return res.redirect(`https://${req.header('host')}${req.url}`);
+    }
+    next();
+  });
+}
+
 
 // Routes
 app.use('/api/projects', projectRoutes);
