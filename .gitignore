@@ -4,7 +4,7 @@ server/node_modules/
 client/node_modules/
 
 # Environment variables
-.env
+client/.env
 server/.env
 
 # Logs
@@ -16,6 +16,8 @@ logs
 *.log
 
 # Build outputs
+client/dist
+server/dist
 dist/
 build/
 client/build/

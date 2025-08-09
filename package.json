@@ -4,22 +4,17 @@
   "description": "**My portfolio website showcasing my skills, projects, and digital brand.**",
   "main": "server/server.js",
   "scripts": {
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently \"npm:server\" \"npm:client\"",
     "server": "cd server && npm run dev",
-    "client": "cd client && npm start",
+    "client": "cd client && npm run dev",
     "build": "cd client && npm run build",
+    "preview": "cd client && npm run preview",
     "install-server": "cd server && npm install",
     "install-client": "cd client && npm install",
     "install-all": "npm run install-server && npm run install-client",
     "start": "cd server && npm start"
   },
-  "keywords": [
-    "portfolio",
-    "mern",
-    "react",
-    "express",
-    "mongodb"
-  ],
+  "keywords": ["portfolio", "mern", "react", "express", "mongodb"],
   "author": "Japhet",
   "license": "MIT",
   "devDependencies": {
