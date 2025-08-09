@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const Project = require('../models/Project');
+const Project = require('../models/Project.js');
 
 dotenv.config();
 

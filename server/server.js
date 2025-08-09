@@ -6,6 +6,8 @@ const morgan = require('morgan');
 const connectDB = require('./config/db.js');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware.js');
 const projectRoutes = require('./routes/projects.js');
+const authRoutes = require('./routes/auth');
+const cookieParser = require('cookie-parser');
 
 dotenv.config();
 
@@ -18,15 +20,17 @@ app.use(helmet());
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
     ? 'https://yourdomain.com' 
-    : 'http://localhost:3000',
+    : 'http://localhost:5173',
   credentials: true
 }));
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use('/api/projects', projectRoutes);
+app.use('/api/auth', authRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });

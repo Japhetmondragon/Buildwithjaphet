@@ -5,6 +5,13 @@ const API = axios.create({
   withCredentials: true,
 });
 
+export const authAPI = {
+  login: (email, password) => API.post('/auth/login', { email, password }),
+  me: () => API.get('/auth/me'),
+  logout: () => API.post('/auth/logout'),
+};
+
+
 export const projectsAPI = {
   getAll: (filters = {}) => {
     const params = new URLSearchParams(filters).toString();
