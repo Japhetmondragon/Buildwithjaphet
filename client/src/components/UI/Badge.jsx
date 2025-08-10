@@ -4,7 +4,7 @@ const Badge = ({ children, variant = 'default' }) => {
   const variants = {
     default: 'bg-neutral-200 text-neutral-900',
     primary: 'bg-brand-black text-neutral-50',
-    success: 'bg-brand-green text-brand-black'
+    success: 'bg-brand-amber text-brand-black'
   };
   
   return (

@@ -36,7 +36,7 @@ const ProjectCard = ({ project }) => {
       
       <div className="flex items-center justify-between text-sm">
         <span className="text-neutral-600">{project.role}</span>
-        <span className="text-brand-red font-semibold uppercase">View →</span>
+        <span className="text-brand-blue font-semibold uppercase">View →</span>
       </div>
     </Card>
   );

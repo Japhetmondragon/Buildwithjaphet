@@ -33,7 +33,7 @@ const ProjectDetail = () => {
       <Section className="pt-8">
         <Container>
           <Link to="/projects" className="inline-block mb-8">
-            <span className="text-neutral-600 hover:text-brand-red transition-colors">
+            <span className="text-neutral-600 hover:text-brand-blue transition-colors">
               ← Back to Projects
             </span>
           </Link>

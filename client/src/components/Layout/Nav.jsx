@@ -31,8 +31,8 @@ const Nav = () => {
                 to={link.to}
                 className={`font-display uppercase tracking-wider transition-colors ${
                   isActive(link.to) 
-                    ? 'text-brand-red' 
-                    : 'text-brand-black hover:text-brand-red'
+                    ? 'text-brand-blue' 
+                    : 'text-brand-black hover:text-brand-blue'
                 }`}
               >
                 {link.label}
@@ -63,7 +63,7 @@ const Nav = () => {
                 onClick={() => setIsOpen(false)}
                 className={`block py-2 font-display uppercase tracking-wider ${
                   isActive(link.to) 
-                    ? 'text-brand-red' 
+                    ? 'text-brand-blue' 
                     : 'text-brand-black'
                 }`}
               >

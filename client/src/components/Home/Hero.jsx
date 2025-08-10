@@ -10,7 +10,7 @@ const Hero = () => {
         <div className="max-w-5xl">
           <h1 className="text-hero font-display uppercase leading-[0.85] mb-6 animate-slide-up">
             I Build
-            <span className="block text-brand-red">Websites That</span>
+            <span className="block text-brand-blue">Websites That</span>
             <span className="block">Make Money</span>
           </h1>
           
@@ -35,15 +35,15 @@ const Hero = () => {
           
           <div className="mt-12 grid grid-cols-3 gap-8 max-w-2xl animate-fade-in" style={{animationDelay: '0.6s'}}>
             <div>
-              <div className="text-3xl font-display text-brand-red">47%</div>
+              <div className="text-3xl font-display text-brand-blue">47%</div>
               <div className="text-sm text-neutral-600 uppercase tracking-wider">Avg Conversion Lift</div>
             </div>
             <div>
-              <div className="text-3xl font-display text-brand-red">2.4s</div>
+              <div className="text-3xl font-display text-brand-blue">2.4s</div>
               <div className="text-sm text-neutral-600 uppercase tracking-wider">Avg Load Time</div>
             </div>
             <div>
-              <div className="text-3xl font-display text-brand-red">3</div>
+              <div className="text-3xl font-display text-brand-blue">3</div>
               <div className="text-sm text-neutral-600 uppercase tracking-wider">Industries Served</div>
             </div>
           </div>

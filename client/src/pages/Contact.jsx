@@ -115,7 +115,7 @@ const Contact = () => {
                     onChange={handleChange}
                     className={`w-full px-4 py-3 border-2 ${
                       errors.name ? 'border-red-500' : 'border-brand-black'
-                    } focus:outline-none focus:border-brand-red transition-colors`}
+                    } focus:outline-none focus:border-brand-blue transition-colors`}
                     placeholder="John Doe"
                   />
                   {errors.name && (

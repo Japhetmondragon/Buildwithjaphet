@@ -31,9 +31,9 @@ const ValueProp = () => {
             {values.map((value, index) => (
               <div 
                 key={index}
-                className="flex gap-6 items-start p-6 border-l-4 border-brand-red hover:bg-neutral-50 transition-colors"
+                className="flex gap-6 items-start p-6 border-l-4 border-brand-blue hover:bg-neutral-50 transition-colors"
               >
-                <div className="text-4xl font-display text-brand-red">
+                <div className="text-4xl font-display text-brand-blue">
                   {String(index + 1).padStart(2, '0')}
                 </div>
                 <div>

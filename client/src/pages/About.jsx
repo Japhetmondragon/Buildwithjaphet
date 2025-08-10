@@ -62,7 +62,7 @@ const About = () => {
           <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
             {Object.entries(skills).map(([category, items]) => (
               <div key={category}>
-                <h3 className="font-display text-xl uppercase mb-4 text-brand-red">
+                <h3 className="font-display text-xl uppercase mb-4 text-brand-blue">
                   {category}
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -81,7 +81,7 @@ const About = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {stats.map(stat => (
               <div key={stat.label} className="text-center">
-                <div className="text-4xl font-display text-brand-red mb-2">
+                <div className="text-4xl font-display text-brand-blue mb-2">
                   {stat.number}
                 </div>
                 <div className="text-sm uppercase tracking-wider text-neutral-600">
