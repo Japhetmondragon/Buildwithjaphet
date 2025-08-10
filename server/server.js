@@ -19,24 +19,27 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(helmet());
+const allowedOrigin =
+  process.env.NODE_ENV === 'production'
+    ? process.env.CLIENT_URL || 'https://portfolio-api.onrender.com/api'
+    : 'http://localhost:5173';
+
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? 'https://yourdomain.com' 
-    : 'http://localhost:5173',
+  origin: allowedOrigin,
   credentials: true
 }));
-app.use(morgan('dev'));
-app.use(express.json());
-app.use(cookieParser());
-app.use(express.urlencoded({ extended: false }));
-app.use(compression());
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100
 });
 
+app.use(helmet());
+app.use(morgan('dev'));
+app.use(express.json());
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
+app.use(compression());
 app.use('/api', limiter);
 
 if (process.env.NODE_ENV === 'production') {
@@ -53,7 +56,6 @@ if (process.env.NODE_ENV === 'production') {
 // Routes
 app.use('/api/projects', projectRoutes);
 app.use('/api/auth', authRoutes);
-
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
