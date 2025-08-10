@@ -16,13 +16,13 @@ const Footer = () => {
           <div>
             <h4 className="font-display uppercase mb-4">Connect</h4>
             <div className="space-y-2">
-              <a href="https://github.com/Japhetmondragon" className="block text-neutral-400 hover:text-brand-blue transition-colors">
+              <a href="https://github.com/Japhetmondragon" className="block text-neutral-400 hover:text-brand-amber transition-colors">
                 GitHub
               </a>
-              <a href="https://www.linkedin.com/in/japhet-m/" className="block text-neutral-400 hover:text-brand-blue transition-colors">
+              <a href="https://www.linkedin.com/in/japhet-m/" className="block text-neutral-400 hover:text-brand-amber transition-colors">
                 LinkedIn
               </a>
-              <a href="mailto:Japhet@optibizboost.com" className="block text-neutral-400 hover:text-brand-blue transition-colors">
+              <a href="mailto:Japhet@optibizboost.com" className="block text-neutral-400 hover:text-brand-amber transition-colors">
                 Japhet@optibizboost.com
               </a>
             </div>
@@ -31,13 +31,13 @@ const Footer = () => {
           <div>
             <h4 className="font-display uppercase mb-4">Quick Links</h4>
             <div className="space-y-2">
-              <a href="/projects" className="block text-neutral-400 hover:text-brand-blue transition-colors">
+              <a href="/projects" className="block text-neutral-400 hover:text-brand-amber transition-colors">
                 Projects
               </a>
-              <a href="/about" className="block text-neutral-400 hover:text-brand-blue transition-colors">
+              <a href="/about" className="block text-neutral-400 hover:text-brand-amber transition-colors">
                 About
               </a>
-              <a href="/contact" className="block text-neutral-400 hover:text-brand-blue transition-colors">
+              <a href="/contact" className="block text-neutral-400 hover:text-brand-amber transition-colors">
                 Contact
               </a>
             </div>
