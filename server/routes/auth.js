@@ -22,11 +22,13 @@ router.post('/login', async (req, res, next) => {
 
     if (user && (await user.matchPassword(password))) {
       const token = generateToken(user._id);
+      const isProd = process.env.NODE_ENV === 'production';
       res.cookie('token', token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict',
-        maxAge: 30 * 24 * 60 * 60 * 1000,
+      httpOnly: true,
+      secure: isProd,                      // required for SameSite=None
+      sameSite: isProd ? 'none' : 'lax',   // cross-site in prod, dev is fine with lax
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+      path: '/',                           // be explicit
       });
       return res.json({ _id: user._id, email: user.email, isAdmin: user.isAdmin });
     }
@@ -42,9 +44,13 @@ router.post('/login', async (req, res, next) => {
 // @route   POST /api/auth/logout
 // @access  Private
 router.post('/logout', (req, res) => {
+  const isProd = process.env.NODE_ENV === 'production';
   res.cookie('token', '', {
-    httpOnly: true,
-    expires: new Date(0)
+  httpOnly: true,
+  secure: isProd,
+  sameSite: isProd ? 'none' : 'lax',
+  expires: new Date(0),
+  path: '/',
   });
   
   res.json({ message: 'Logged out successfully' });
