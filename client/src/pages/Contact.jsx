@@ -134,7 +134,7 @@ const Contact = () => {
                     onChange={handleChange}
                     className={`w-full px-4 py-3 border-2 ${
                       errors.email ? 'border-red-500' : 'border-brand-black'
-                    } focus:outline-none focus:border-brand-red transition-colors`}
+                    } focus:outline-none focus:border-brand-blue transition-colors`}
                     placeholder="john@company.com"
                   />
                   {errors.email && (
@@ -151,7 +151,7 @@ const Contact = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-brand-black focus:outline-none focus:border-brand-red transition-colors"
+                    className="w-full px-4 py-3 border-2 border-brand-black focus:outline-none focus:border-brand-blue transition-colors"
                     placeholder="Awesome Inc."
                   />
                 </div>
@@ -164,7 +164,7 @@ const Contact = () => {
                     name="budget"
                     value={formData.budget}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-brand-black focus:outline-none focus:border-brand-red transition-colors"
+                    className="w-full px-4 py-3 border-2 border-brand-black focus:outline-none focus:border-brand-blue transition-colors"
                   >
                     <option value="">Select budget</option>
                     <option value="5-10k">$5k - $10k</option>
@@ -205,7 +205,7 @@ const Contact = () => {
                   </h3>
                   <a 
                     href="mailto:hello@yourdomain.com" 
-                    className="text-lg text-brand-red hover:underline"
+                    className="text-lg text-brand-blue hover:underline"
                   >
                     Japhet@optibizboost.com
                   </a>
@@ -233,13 +233,13 @@ const Contact = () => {
                   </ol>
                 </div>
                 
-                <div className="p-6 bg-neutral-100 border-l-4 border-brand-green">
+                <div className="p-6 bg-neutral-100 border-l-4 border-brand-amber">
                   <p className="font-semibold mb-2">Prefer to talk now?</p>
                   <p className="text-neutral-600">
                     Book a call: 
                     <a 
                       href="https://optibizboost.com/book" 
-                      className="text-brand-red hover:underline ml-1"
+                      className="text-brand-blue hover:underline ml-1"
                     >
                       optibizboost.com/build-with-japhet
                     </a>
