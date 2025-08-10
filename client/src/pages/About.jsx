@@ -12,8 +12,8 @@ const About = () => {
   };
   
   const stats = [
-    { number: "5+", label: "Years Experience" },
-    { number: "50+", label: "Projects Shipped" },
+    { number: "2+", label: "Years Helping Businesses Online" },
+    { number: "5", label: "Ongoing Projects" },
     { number: "98%", label: "Client Satisfaction" },
     { number: "24h", label: "Avg Response Time" }
   ];
@@ -33,20 +33,20 @@ const About = () => {
               </p>
               
               <p>
-                Started coding at 14. Dropped out of college because I was already making 
-                six figures freelancing. Now I help startups and enterprises build products 
-                that actually make money.
+                Started coding at 21. Left college to go all-in on building skills that 
+                actually make money. Now I help small businesses and startups 
+                turn ideas into profitable websites, sales funnels, and ad campaigns.
               </p>
               <p>
                 I don't do vanity metrics. I don't build "pretty" websites that don't convert. 
-                I build revenue machines disguised as web applications. Every decision is 
-                data-driven, every feature is ROI-positive.
+                I build revenue-focused web applications and marketing systems 
+                where every feature serves a clear ROI.
               </p>
               
               <p>
-                When I'm not shipping code, I'm probably reading earnings reports, 
-                lifting heavy things, or figuring out how to make your competitor's 
-                website look slow.
+                 When I'm not writing code, I'm probably deep in market research, 
+                 testing ad strategies, or figuring out how to make your 
+                 competitor’s website feel outdated.
               </p>
             </div>
           </div>

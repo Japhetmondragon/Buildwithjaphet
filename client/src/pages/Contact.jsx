@@ -207,7 +207,7 @@ const Contact = () => {
                     href="mailto:hello@yourdomain.com" 
                     className="text-lg text-brand-red hover:underline"
                   >
-                    hello@yourdomain.com
+                    Japhet@optibizboost.com
                   </a>
                 </div>
                 
@@ -238,10 +238,10 @@ const Contact = () => {
                   <p className="text-neutral-600">
                     Book a call: 
                     <a 
-                      href="https://calendly.com/yourname" 
+                      href="https://optibizboost.com/book" 
                       className="text-brand-red hover:underline ml-1"
                     >
-                      calendly.com/yourname
+                      optibizboost.com/build-with-japhet
                     </a>
                   </p>
                 </div>

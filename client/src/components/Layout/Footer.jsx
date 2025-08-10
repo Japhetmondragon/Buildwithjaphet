@@ -16,14 +16,14 @@ const Footer = () => {
           <div>
             <h4 className="font-display uppercase mb-4">Connect</h4>
             <div className="space-y-2">
-              <a href="https://github.com" className="block text-neutral-400 hover:text-brand-green transition-colors">
+              <a href="https://github.com/Japhetmondragon" className="block text-neutral-400 hover:text-brand-green transition-colors">
                 GitHub
               </a>
-              <a href="https://linkedin.com" className="block text-neutral-400 hover:text-brand-green transition-colors">
+              <a href="https://www.linkedin.com/in/japhet-m/" className="block text-neutral-400 hover:text-brand-green transition-colors">
                 LinkedIn
               </a>
-              <a href="mailto:hello@example.com" className="block text-neutral-400 hover:text-brand-green transition-colors">
-                Email
+              <a href="mailto:Japhet@optibizboost.com" className="block text-neutral-400 hover:text-brand-green transition-colors">
+                Japhet@optibizboost.com
               </a>
             </div>
           </div>
@@ -45,7 +45,7 @@ const Footer = () => {
         </div>
         
         <div className="mt-12 pt-8 border-t border-neutral-800 text-center text-neutral-400">
-          <p>&copy; {new Date().getFullYear()} YourName. Built Different.</p>
+          <p>&copy; {new Date().getFullYear()} Japhet Mondragon. Built Different.</p>
         </div>
       </Container>
     </footer>

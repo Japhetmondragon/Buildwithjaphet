@@ -43,8 +43,8 @@ const Hero = () => {
               <div className="text-sm text-neutral-600 uppercase tracking-wider">Avg Load Time</div>
             </div>
             <div>
-              <div className="text-3xl font-display text-brand-red">$2M+</div>
-              <div className="text-sm text-neutral-600 uppercase tracking-wider">Client Revenue</div>
+              <div className="text-3xl font-display text-brand-red">3</div>
+              <div className="text-sm text-neutral-600 uppercase tracking-wider">Industries Served</div>
             </div>
           </div>
         </div>

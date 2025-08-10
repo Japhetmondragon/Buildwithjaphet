@@ -20,7 +20,7 @@ const Nav = () => {
       <Container>
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="font-display text-2xl uppercase">
-            YourName
+            Japhet Mondragon
           </Link>
           
           {/* Desktop Menu */}
