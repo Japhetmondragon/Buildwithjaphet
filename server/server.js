@@ -21,7 +21,7 @@ const app = express();
 // Middleware
 const allowedOrigin =
   process.env.NODE_ENV === 'production'
-    ? process.env.CLIENT_URL || 'https://portfolio-api.onrender.com/api'
+    ? process.env.CLIENT_URL
     : 'http://localhost:5173';
 
 app.use(cors({
