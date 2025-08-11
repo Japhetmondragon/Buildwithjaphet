@@ -24,9 +24,21 @@ const allowedOrigin =
     ? process.env.CLIENT_URL
     : 'http://localhost:5173';
 
+const rawOrigins = allowedOrigins
+  .split(',')
+  .map(s => s.trim())
+  .filter(Boolean);
+
 app.use(cors({
-  origin: allowedOrigin,
-  credentials: true
+  origin: (origin, cb) => {
+    // allow server-to-server / curl (no origin header)
+    if (!origin) return cb(null, true);
+    // allow if origin is in the list
+    return rawOrigins.includes(origin)
+      ? cb(null, true)
+      : cb(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
 }));
 
 const limiter = rateLimit({
@@ -34,7 +46,7 @@ const limiter = rateLimit({
   max: 100
 });
 
-app.use(helmet());
+app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cookieParser());
