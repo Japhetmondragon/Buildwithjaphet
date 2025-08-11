@@ -19,7 +19,7 @@ connectDB();
 const app = express();
 
 // Middleware
-const allowedOrigin =
+const allowedOrigins =
   process.env.NODE_ENV === 'production'
     ? process.env.CLIENT_URL
     : 'http://localhost:5173';
