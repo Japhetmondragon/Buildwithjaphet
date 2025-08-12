@@ -14,7 +14,7 @@ const Button = ({
   const baseStyles = 'font-display uppercase tracking-wider transition-all duration-200 inline-flex items-center justify-center';
   
   const variants = {
-    primary: 'bg-brand-black text-neutral-50 hover:bg-brand-blue hover:shadow-brutal-lg disabled:bg-neutral-400',
+    primary: 'bg-brand-black text-neutral-50 hover:bg-brand-amber hover:shadow-brutal-lg disabled:bg-neutral-400',
     secondary: 'bg-neutral-50 text-brand-black border-2 border-brand-black hover:shadow-brutal disabled:opacity-50',
     ghost: 'bg-transparent text-brand-black hover:bg-neutral-100 disabled:opacity-50'
   };

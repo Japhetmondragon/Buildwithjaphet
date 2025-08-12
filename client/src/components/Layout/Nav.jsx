@@ -19,7 +19,7 @@ const Nav = () => {
     <nav className="fixed top-0 w-full bg-neutral-50 border-b-2 border-brand-black z-50">
       <Container>
         <div className="flex justify-between items-center h-20">
-          <Link to="/" className="font-display text-2xl uppercase">
+          <Link to="/" className="font-display text-2xl hover:text-brand-amber uppercase">
             Japhet Mondragon
           </Link>
           

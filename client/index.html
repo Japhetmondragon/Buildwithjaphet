@@ -1,32 +1,57 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0A0A0A" />
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Full-stack developer specializing in high-performance web applications. View case studies, proven results, and let's build something amazing together." />
-    <meta name="keywords" content="full-stack developer, web development, React, Node.js, portfolio" />
-    <meta name="author" content="Japhet Mondragon" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0f172a" />
+
+    <title>Build with Japhet — MERN websites & funnels that convert</title>
+    <meta name="description" content="I build fast, conversion-focused MERN websites and funnels for small businesses in Los Angeles. Clean code, SEO, and Google Ads-ready pages." />
+    <link rel="canonical" href="https://www.buildwithjaphet.com/" />
+
+    <!-- Preconnect for Google Fonts (safe with Vite) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <!-- Open Graph -->
-    <meta property="og:title" content="Japhet Mondragon - Full-Stack Developer" />
-    <meta property="og:description" content="Building high-performance web applications with modern tech stacks." />
-    <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg" />
-    <meta property="og:url" content="https://yourdomain.com" />
     <meta property="og:type" content="website" />
-    
-    <!-- Twitter Card -->
+    <meta property="og:title" content="Build with Japhet — Web Dev & Funnels" />
+    <meta property="og:description" content="Fast, conversion-focused MERN websites and funnels for small businesses. Based in Los Angeles." />
+    <meta property="og:url" content="https://www.buildwithjaphet.com/" />
+    <!-- When you add the file later, this will work -->
+    <meta property="og:image" content="https://www.buildwithjaphet.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Japhet Mondragon - Full-Stack Developer" />
-    <meta name="twitter:description" content="Building high-performance web applications with modern tech stacks." />
-    <meta name="twitter:image" content="%PUBLIC_URL%/og-image.jpg" />
-    <title>Build with Japhet</title>
+    <meta name="twitter:title" content="Build with Japhet — Web Dev & Funnels" />
+    <meta name="twitter:description" content="Fast, conversion-focused MERN websites and funnels for small businesses. Based in Los Angeles." />
+    <meta name="twitter:image" content="https://www.buildwithjaphet.com/og-image.jpg" />
   </head>
   <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+    <!-- Vite entry: REQUIRED -->
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Japhet Mondragon",
+      "url": "https://www.buildwithjaphet.com/",
+      "jobTitle": "Full-stack Developer",
+      "knowsAbout": ["Web development", "MERN", "SEO", "Google Ads", "Sales funnels"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Los Angeles",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      }
+    }
+    </script>
   </body>
 </html>

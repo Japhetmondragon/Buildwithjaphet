@@ -8,7 +8,7 @@ const Hero = () => {
     <section className="min-h-screen flex items-center bg-gradient-to-br from-neutral-50 to-neutral-100">
       <Container>
         <div className="max-w-5xl">
-          <h1 className="text-hero font-display uppercase leading-[0.85] mb-6 animate-slide-up">
+          <h1 className="text-2xl font-display uppercase leading-[0.85] mb-6 animate-slide-up">
             I Build
             <span className="block text-brand-blue">Websites That</span>
             <span className="block">Make Money</span>

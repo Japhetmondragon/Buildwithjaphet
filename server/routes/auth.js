@@ -15,10 +15,16 @@ const generateToken = (id) => {
 // @access  Public
 router.post('/login', async (req, res, next) => {
   try {
-    const { email, password } = req.body;
+    const emailInput = (req.body.email || '').trim().toLowerCase(); // <- normalize email
+    const { password } = req.body;
+
+    if (!emailInput || !password) {
+      res.status(400);
+      throw new Error('Email and password are required');
+    }
 
     // must select password since it's hidden by default
-    const user = await User.findOne({ email }).select('+password');
+    const user = await User.findOne({ email: emailInput }).select('+password');
 
     if (user && (await user.matchPassword(password))) {
       const token = generateToken(user._id);

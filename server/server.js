@@ -68,6 +68,7 @@ if (process.env.NODE_ENV === 'production') {
 // Routes
 app.use('/api/projects', projectRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/uploads', require('./routes/uploads'));
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
