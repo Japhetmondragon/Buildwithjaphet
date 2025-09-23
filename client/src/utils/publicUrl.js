@@ -13,32 +13,51 @@ export const FALLBACK_SVG =
 export function toPublicUrl(pathOrUrl) {
   if (!pathOrUrl) return FALLBACK_SVG;
 
-  // already absolute?
+  // Already absolute
   if (typeof pathOrUrl === "string" && /^https?:\/\//i.test(pathOrUrl)) return pathOrUrl;
 
-  // object from API (absoluteUrl/url/path)
-  if (typeof pathOrUrl === "object" && pathOrUrl !== null) {
+  // Handle objects like { absoluteUrl, url, path }
+  if (pathOrUrl && typeof pathOrUrl === "object") {
     const candidate = pathOrUrl.absoluteUrl || pathOrUrl.url || pathOrUrl.path || "";
     return toPublicUrl(candidate);
   }
 
   const p = String(pathOrUrl);
-  const base = import.meta.env.VITE_API_URL || "";
-  const isAbsoluteBase = /^https?:\/\//i.test(base);
 
-  if (isAbsoluteBase) {
-    const cleaned = p.replace(/^\/+/, "");
-    const ensured = base.endsWith("/") ? base : base + "/";
-    return new URL(cleaned, ensured).toString();
+  // 1) Prefer explicit ORIGIN (no /api here!)
+  const ORIGIN = (import.meta.env.VITE_API_ORIGIN || "").replace(/\/$/, "");
+  if (ORIGIN) {
+    // p is usually "/api/uploads/<id>" – just stick it after the origin
+    const suff = p.startsWith("/") ? p : "/" + p;
+    return ORIGIN + suff;
   }
 
-  // relative base (e.g. "/api")
-  if (base) {
-    const prefix = base.endsWith("/") ? base.slice(0, -1) : base;
-    const suffix = p.startsWith("/") ? p : "/" + p;
-    return prefix + suffix;
+  // 2) Otherwise, use API_URL (may be absolute or '/api')
+  const API_URL = import.meta.env.VITE_API_URL || "";
+  const isAbs = /^https?:\/\//i.test(API_URL);
+
+  if (isAbs) {
+    // If API_URL already has a path (e.g. ends with /api), don't double it.
+    const u = new URL(API_URL);
+    const basePath = u.pathname.replace(/\/+$/, ""); // e.g. "/api"
+    const pPath = p.startsWith("/") ? p : "/" + p;   // e.g. "/api/uploads/.."
+    // If p already starts with basePath, use p as-is; else prefix basePath.
+    const finalPath = basePath && !pPath.startsWith(basePath + "/")
+      ? basePath + pPath
+      : pPath;
+    u.pathname = finalPath;
+    return u.toString();
   }
 
-  // same-origin fallback
+  if (API_URL) {
+    // Relative base (e.g. "/api")
+    const base = API_URL.endsWith("/") ? API_URL.slice(0, -1) : API_URL;
+    // If p already starts with '/api/', return p; else join.
+    if (p.startsWith(base + "/")) return p;
+    const suff = p.startsWith("/") ? p : "/" + p;
+    return base + suff; // "/api" + "/uploads/.." -> "/api/uploads/.."
+  }
+
+  // Same-origin fallback
   return p;
 }
