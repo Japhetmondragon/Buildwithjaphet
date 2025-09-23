@@ -10,24 +10,35 @@ export const FALLBACK_SVG =
      </svg>`
   );
 
-// Accepts absolute URLs, relative "/api/...", or just an id path.
-// Builds a correct public URL when API is on a different origin.
 export function toPublicUrl(pathOrUrl) {
   if (!pathOrUrl) return FALLBACK_SVG;
-  if (/^https?:\/\//i.test(pathOrUrl)) return pathOrUrl; // already absolute
 
-  // Support objects like { absoluteUrl, url, path }
-  if (typeof pathOrUrl === "object") {
-    const candidate =
-      pathOrUrl.absoluteUrl || pathOrUrl.url || pathOrUrl.path || "";
+  // already absolute?
+  if (typeof pathOrUrl === "string" && /^https?:\/\//i.test(pathOrUrl)) return pathOrUrl;
+
+  // object from API (absoluteUrl/url/path)
+  if (typeof pathOrUrl === "object" && pathOrUrl !== null) {
+    const candidate = pathOrUrl.absoluteUrl || pathOrUrl.url || pathOrUrl.path || "";
     return toPublicUrl(candidate);
   }
 
-  const base = import.meta.env.VITE_API_URL || ""; // e.g. https://api.example.com/api
-  if (base) {
-    const cleaned = pathOrUrl.replace(/^\/+/, "");
+  const p = String(pathOrUrl);
+  const base = import.meta.env.VITE_API_URL || "";
+  const isAbsoluteBase = /^https?:\/\//i.test(base);
+
+  if (isAbsoluteBase) {
+    const cleaned = p.replace(/^\/+/, "");
     const ensured = base.endsWith("/") ? base : base + "/";
     return new URL(cleaned, ensured).toString();
   }
-  return pathOrUrl; // same-origin fallback
+
+  // relative base (e.g. "/api")
+  if (base) {
+    const prefix = base.endsWith("/") ? base.slice(0, -1) : base;
+    const suffix = p.startsWith("/") ? p : "/" + p;
+    return prefix + suffix;
+  }
+
+  // same-origin fallback
+  return p;
 }

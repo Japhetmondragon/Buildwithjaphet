@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from '../UI/Card';
 import Badge from '../UI/Badge';
+import { toPublicUrl, FALLBACK_SVG } from "../../utils/publicUrl";
 
 const ProjectCard = ({ project }) => {
   const navigate = useNavigate();
@@ -12,13 +13,12 @@ const ProjectCard = ({ project }) => {
       className="h-full flex flex-col"
     >
       <div className="aspect-video bg-neutral-200 mb-4 overflow-hidden">
-        <img 
-          src={project.heroImage} 
+        <img
+          src={toPublicUrl(project.heroImage)}
           alt={project.title}
           className="w-full h-full object-cover"
-          onError={(e) => {
-            e.target.src = 'https://via.placeholder.com/600x400/E0E0E0/666666?text=Project';
-          }}
+          loading="lazy"
+          onError={(e) => { e.currentTarget.src = FALLBACK_SVG; }}
         />
       </div>
       
