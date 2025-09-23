@@ -8,6 +8,7 @@ import Badge from '../components/UI/Badge';
 import Loader from '../components/UI/Loader';
 import ErrorMessage from '../components/UI/ErrorMessage';
 import { useProject } from '../hooks/useProjects';
+import { toPublicUrl, FALLBACK_SVG } from "../utils/publicUrl";
 
 const ProjectDetail = () => {
   const { slug } = useParams();
@@ -70,12 +71,13 @@ const ProjectDetail = () => {
       <Section className="py-0">
         <Container>
           <div className="aspect-video bg-neutral-200 overflow-hidden">
-            <img 
-              src={project.heroImage} 
+            <img
+              src={toPublicUrl(project.heroImage)}  // <-- was project.heroImage
               alt={project.title}
               className="w-full h-full object-cover"
+              loading="lazy"
               onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/1200x675/E0E0E0/666666?text=Project';
+                e.currentTarget.src = FALLBACK_SVG; // no external DNS
               }}
             />
           </div>
@@ -134,12 +136,13 @@ const ProjectDetail = () => {
             <div className="grid md:grid-cols-2 gap-8">
               {project.gallery.map((image, index) => (
                 <div key={index} className="aspect-video bg-neutral-200 overflow-hidden">
-                  <img 
-                    src={image} 
+                  <img
+                    src={toPublicUrl(image)}               // <-- was image
                     alt={`${project.title} screenshot ${index + 1}`}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                     onError={(e) => {
-                      e.target.src = 'https://via.placeholder.com/600x400/E0E0E0/666666?text=Gallery';
+                      e.currentTarget.src = FALLBACK_SVG;
                     }}
                   />
                 </div>
