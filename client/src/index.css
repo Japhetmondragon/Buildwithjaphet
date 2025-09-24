@@ -14,7 +14,7 @@
   --text-h2: clamp(2.00rem, 4vw, 3.0rem);
   --text-h3: clamp(1.50rem, 3vw, 2.0rem);
 
-  --spacing-section: 6rem;
+  --spacing-section: 2rem;
 
   --shadow-brutal:    4px 4px 0 var(--color-brand-black);
   --shadow-brutal-lg: 8px 8px 0 var(--color-brand-black);
