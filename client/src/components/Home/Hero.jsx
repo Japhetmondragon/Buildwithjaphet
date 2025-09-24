@@ -17,7 +17,7 @@ const Hero = () => {
           <p className="text-xl md:text-2xl text-neutral-600 mb-8 max-w-2xl animate-fade-in" style={{animationDelay: '0.2s'}}>
             Full-stack developer who turns business problems into 
             <span className="text-brand-black font-semibold"> revenue-generating solutions</span>. 
-            No BS. Just results.
+            Just results.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{animationDelay: '0.4s'}}>
