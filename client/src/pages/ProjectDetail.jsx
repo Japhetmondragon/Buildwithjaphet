@@ -167,11 +167,11 @@ const ProjectDetail = () => {
       
       <Section className="py-0">
         <Container>
-          <div className="aspect-video bg-neutral-200 overflow-hidden flex items-center justify-center">
+          <div className="bg-neutral-200 overflow-hidden flex items-center justify-center rounded">
             <img
               src={toPublicUrl(project.heroImage)}  // <-- was project.heroImage
               alt={project.title}
-              className="h-full w-auto max-w-full object-contain"
+              className="w-full max-h-[70vh] object-contain"
               loading="lazy"
               onError={(e) => {
                 e.currentTarget.src = FALLBACK_SVG; // no external DNS
